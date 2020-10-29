@@ -4,6 +4,9 @@ class MessagesController < ApplicationController
     @messages = Message.all.order(:id)
   end
 
+  def new
+  end
+
   def create
     @message = Message.create(message_params)
   end
