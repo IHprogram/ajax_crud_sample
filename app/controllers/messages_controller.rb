@@ -1,11 +1,18 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: :destroy
+  before_action :set_message, only: [:edit,:update,:destroy]
   def index
-    @messages = Message.all
+    @messages = Message.all.order(:id)
   end
 
   def create
     @message = Message.create(message_params)
+  end
+
+  def edit
+  end
+
+  def update
+    @message.update(message_params)
   end
 
   def destroy
